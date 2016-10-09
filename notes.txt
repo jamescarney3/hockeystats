@@ -1,0 +1,20 @@
+Need:
+  process manager / scheduler thing:
+    - iterate from one game iterator dict to the next
+    - translate a game iterator dict to a url
+    - make get request to url
+    - pass response to scraper and not care what happens
+    - handle bad request / not found errors
+      - log failures for my eyeballs to inspect
+      - increment fails key on game iterator
+  scraper:
+    - parse response
+      - into orm tool models
+      - persist models with appropriate joins between them
+  orm tools:
+    - resources / boilerplate for connecting to a postgres db
+    - models <---> rdb schema
+      - cr(no u)d methods as needed
+  database setup / management:
+    - rdb tables to store & join game report data (game metadata, events, rosters, etc)
+    - join table for same players on different teams / with different numbers
