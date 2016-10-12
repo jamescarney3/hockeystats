@@ -1,6 +1,6 @@
 Need:
   process manager / scheduler thing:
-    - iterate from one game iterator dict to the next
+    - iterate from one game iterator dict to the next - DONE
     - translate a game iterator dict to a url
     - make get request to url
     - pass response to scraper and not care what happens
@@ -11,6 +11,8 @@ Need:
     - parse response
       - into orm tool models
       - persist models with appropriate joins between them
+      - handle errors during scraping
+        - log games with unsuccessful scrapes
   orm tools:
     - resources / boilerplate for connecting to a postgres db
     - models <---> rdb schema

@@ -1,5 +1,10 @@
 import unittest
-from iterator import increment_game_id_iterator, MAX_FAILS
+import os
+import sys
+
+import context
+
+from stats_collector.iterator import increment_game_id_iterator, MAX_FAILS
 
 class TestGameIdIteratorIncrementor(unittest.TestCase):
     def test_iterator_with_no_args(self):
