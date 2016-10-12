@@ -1,7 +1,4 @@
 import unittest
-import os
-import sys
-
 import context
 
 from stats_collector.iterator import increment_game_id_iterator, MAX_FAILS
