@@ -15,7 +15,7 @@
 # and/or canceled games).
 initial_game_id_iterator = {"year": 2007,
                             "season": 1,
-                            "game": 1,
+                            "game": 0,
                             "round": 1,
                             "series": 1,
                             "fails": 0}
@@ -33,7 +33,7 @@ PLAYOFF_MAX_GAMES = 7
 # and returns a game_id_iterator that can be
 # deseralized into the url for the next game report
 # the scraper will attempt to process.
-def increment_game_iterator(game_id_iterator=initial_game_id_iterator,
+def increment_game_id_iterator(game_id_iterator=initial_game_id_iterator,
                             fail=False):
 
     year = game_id_iterator["year"]
@@ -49,7 +49,7 @@ def increment_game_iterator(game_id_iterator=initial_game_id_iterator,
             next_iterator.update({"game": game + 1,
                                   "fails": 0})
         else:
-            next_iterator.update({"season": season + 1
+            next_iterator.update({"season": season + 1,
                                   "game": 1,
                                   "fails": 0})
     else:
@@ -61,7 +61,7 @@ def increment_game_iterator(game_id_iterator=initial_game_id_iterator,
                                   "game": 1,
                                   "fails": 0})
         elif rd < PLAYOFF_MAX_ROUNDS:
-            next_iterator.update({"round" rd + 1,
+            next_iterator.update({"round": rd + 1,
                                   "series": 1,
                                   "game": 1,
                                   "fails": 0})
@@ -69,7 +69,7 @@ def increment_game_iterator(game_id_iterator=initial_game_id_iterator,
             next_iterator.update({"year": year + 1,
                                   "season": 1,
                                   "game": 1,
-                                  "round" 1,
+                                  "round": 1,
                                   "series": 1,
                                   "fails": 0})
     return next_iterator
