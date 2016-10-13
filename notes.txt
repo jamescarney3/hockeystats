@@ -20,3 +20,8 @@ Need:
   database setup / management:
     - rdb tables to store & join game report data (game metadata, events, rosters, etc)
     - join table for same players on different teams / with different numbers
+
+
+
+http://www.nhl.com/scores/htmlreports/20102011/PL030413.HTM has STOP events
+for player injury and tv timeout at 5:07 first period

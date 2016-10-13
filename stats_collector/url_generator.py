@@ -45,7 +45,7 @@ def get_game_id(season, game, series, rd):
     if season < PLAYOFF_CODE:
         return str(season).zfill(2) + str(game).zfill(4)
     else:
-        return str(season).zfill(2) + str(rd).zfill(2) + (str(series) + str(game)).zfill(4)
+        return str(season).zfill(2) + (str(rd) + str(series) + str(game)).zfill(4)
 
 def get_year_path(year):
     return str(year) + str(year + 1)

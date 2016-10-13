@@ -33,7 +33,7 @@ PLAYOFF_MAX_GAMES = 7
 # and returns a game_id_iterator that can be
 # deseralized into the url for the next game report
 # the scraper will attempt to process.
-def increment_game_id_iterator(game_id_iterator=initial_game_id_iterator, **kwargs):
+def increment_game_id_iterator(game_id_iterator=initial_game_id_iterator):
 
     year = game_id_iterator["year"]
     season = game_id_iterator["season"]
