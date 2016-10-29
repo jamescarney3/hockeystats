@@ -1,0 +1,3 @@
+{
+  "tests/stats_collector/workflow_test.py::TestWorkflow::test_request_to_bad_url": true
+}

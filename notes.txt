@@ -1,12 +1,13 @@
 Need:
   process manager / scheduler thing:
     - iterate from one game iterator dict to the next - DONE
-    - translate a game iterator dict to a url
+    - translate a game iterator dict to a url - DONE
     - make get request to url
     - pass response to scraper and not care what happens
     - handle bad request / not found errors
       - log failures for my eyeballs to inspect
       - increment fails key on game iterator
+    - log requests with 200OK
   scraper:
     - parse response
       - into orm tool models
@@ -25,3 +26,35 @@ Need:
 
 http://www.nhl.com/scores/htmlreports/20102011/PL030413.HTM has STOP events
 for player injury and tv timeout at 5:07 first period
+
+
+
+workflow for workflow:
+  some main function:
+    # call with an iterator dict as an argument, optional iterations argument
+    set some private iterator to 1
+    while iterator < 100 or iterations arg
+      generate play by play, home roster, visitor roster urls (url_generator module)
+      request reports from each url
+        if no requests return with 200 OK, increment iterator failure
+      set iterator equal to increment_game_id_iterator called with it (iterator module)
+      increment private iterator
+      # catch any errors by persisting the iterator dict into JSON file
+    after loop
+    persist iterator into JSON file
+
+investigate:
+  can i mock out functions that the module i'm testing imports and then calls
+  within its own functions?
+
+need to test in workflow:
+  main function:
+    calls 3 url generators with iterator dict (mock out everything else)
+    makes 3 requests with (mock out everything else)
+    increments iterator fails on three 400 responses (mock out everything else)
+    doesn't increment iterator fails on any 200 responses (mock out everything else)
+    passes iterator increment_game_id_iterator (mock out everything else)
+    runs the right number of times when called without an iterator (mock out everything else)
+    runs the right number of times when called with an iterator (mock out everything else)
+    persists iterator as JSON file after look when it works (mock out everything else)
+    persists iterator as JSON file if it ever fails (mock out everything else)
