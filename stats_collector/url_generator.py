@@ -49,3 +49,7 @@ def get_game_id(season, game, series, rd):
 
 def get_year_path(year):
     return str(year) + str(year + 1)
+
+__all__ = ['generate_game_report_url',
+           'generate_home_players_url',
+           'generate_visitor_players_url']
