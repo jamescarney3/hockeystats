@@ -15,7 +15,11 @@ def get_reports(game_id_iterator):
     game_report_url = generate_game_report_url(game_id_iterator)
     home_players_url = generate_home_players_url(game_id_iterator)
     visitor_players_url = generate_visitor_players_url(game_id_iterator)
-    game_report = requests.get(game_report_url).content
-    home_players = requests.get(home_players_url).content
-    visitor_players = requests.get(visitor_players_url).content
-    return [game_report, home_players, visitor_players]
+    try:
+        game_report = requests.get(game_report_url).content
+        home_players = requests.get(home_players_url).content
+        visitor_players = requests.get(visitor_players_url).content
+        return [game_report, home_players, visitor_players]
+    except Exception:
+        print('Error for date in:')
+        print(game_id_iterator)

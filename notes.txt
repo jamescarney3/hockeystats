@@ -2,7 +2,7 @@ Need:
   process manager / scheduler thing:
     - iterate from one game iterator dict to the next - DONE
     - translate a game iterator dict to a url - DONE
-    - make get request to url
+    - make get request to url - DONE
     - pass response to scraper and not care what happens
     - handle bad request / not found errors
       - log failures for my eyeballs to inspect
