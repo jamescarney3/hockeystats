@@ -9,7 +9,7 @@ import re
 def parse_on_ice_td(on_ice_td):
     outer_table = on_ice_td.table
     # sometimes there's no one on the ice for penalties that happen after the
-    # game ends (+ other potential edge cases...)
+    # game ends (+ other potential edge cases...??)
     if outer_table:
         players = outer_table.find_all('table')
         on_ice = []

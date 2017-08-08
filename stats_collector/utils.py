@@ -37,6 +37,7 @@ ABBREVIATIONS = {
     'tampa bay lightning': 'T.B',
     'toronto maple leafs': 'TOR',
     'vancouver canucks': 'VAN',
+    'las vegas golden knights': 'VGK',
     'washington capitals': 'WSH',
     'winnipeg jets': 'WPG'}
 

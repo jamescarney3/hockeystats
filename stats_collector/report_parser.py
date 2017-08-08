@@ -3,6 +3,8 @@
 import re
 from bs4 import BeautifulSoup
 
+from event_parser import parse_event
+
 from utils import ABBREVIATIONS
 
 whiteSpaceReducer = re.compile('(\s|\xa0|&nbsp;)+')
@@ -14,7 +16,7 @@ arena_isolator = re.compile('(Attendance|Ass./Att) (\d+,|)\d+ (at|@) ')
 # json serialization of all events and metadata contained in the
 # report
 def parse_game_report(game_report_html):
-    soup = BeautifulSoup(game_report_html)
+    soup = BeautifulSoup(game_report_html, "html.parser")
     events = soup.find_all('tr', {'class': 'evenColor'})
     visitor_info = soup.find('table', {'id': 'Visitor'})
     home_info = soup.find('table', {'id': 'Home'})
@@ -51,9 +53,9 @@ def parse_game_report(game_report_html):
 
     game_json['events'] = []
 
-    # for event in events:
-    #     game_json['events'].append(parse_event(event))
+    for event in events:
+        game_json['events'].append(parse_event(event))
 
-    # game_json['url'] = url
+    game_json['url'] = url
 
     return game_json

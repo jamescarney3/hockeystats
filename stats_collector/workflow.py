@@ -21,5 +21,5 @@ def get_reports(game_id_iterator):
         visitor_players = requests.get(visitor_players_url).content
         return [game_report, home_players, visitor_players]
     except Exception:
-        print('Error for date in:')
+        print('Error for game: ')
         print(game_id_iterator)
