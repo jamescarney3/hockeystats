@@ -56,6 +56,6 @@ def parse_game_report(game_report_html):
     for event in events:
         game_json['events'].append(parse_event(event))
 
-    game_json['url'] = url
+    # game_json['url'] = url
 
     return game_json
