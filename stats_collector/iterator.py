@@ -14,6 +14,8 @@ PLAYOFF_MAX_SERIES = 8 # this isn't used, keep for notes
 PLAYOFF_MAX_GAMES = 7
 
 class GameIterator:
+    # should this be able to take a dict or **kwargs so you can instantiate a
+    # fresh one from wherever you left of for whatever reason?
     def __init__(self):
         self.year = INIT_YEAR
         self.season_code = INIT_SEASON_CODE
@@ -22,6 +24,9 @@ class GameIterator:
         self.series = INIT_SERIES
         self.fails = INIT_FAILS
 
+    # getting vals out of this thing should happen with serialize and get, but
+    # it would obviously be better to bury the actual ivars by usore prefixing
+    # them and providing getters
     def serialize(self):
         return {
             'year': self.year,
@@ -30,6 +35,9 @@ class GameIterator:
             'round': self.round,
             'series': self.series,
             'fails': self.fails}
+
+    def get(self, key):
+        return self.serialize().get(key)
 
     def reset_keys(self, *keys):
         for key in keys:
